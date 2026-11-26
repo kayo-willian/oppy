@@ -6,6 +6,8 @@ Significant merged changes to Oppy are recorded here. The source identifies itse
 
 ### Added
 
+- Read-only `status --json` output for monitoring scripts.
+
 - Optional English Telegram notifications and summary preview via `BEACON_NOTIFICATION_LANGUAGE=en`. Brazilian Portuguese remains the default.
 
 - Contribution guide, code of conduct, security reporting policy, bilingual issue templates and an English pull request template.

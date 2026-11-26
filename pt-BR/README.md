@@ -80,11 +80,14 @@ Execute os comandos na raiz do repositório em Linux. As duas verificações rá
 | Enviar uma mensagem de teste | `docker compose run --rm oppy python -m oppy smoke-telegram` |
 | Iniciar o agendador | `docker compose up -d` |
 | Consultar as últimas verificações e mensagens pendentes | `docker compose exec oppy python -m oppy status` |
+| Consultar o estado em JSON | `docker compose exec oppy python -m oppy status --json` |
 | Exibir o resumo salvo | `docker compose exec oppy python -m oppy summary` |
 | Enviar diretamente o resumo salvo | `docker compose exec oppy python -m oppy summary --send` |
 | Criar um backup consistente do SQLite | `docker compose exec oppy python -m oppy backup` |
 | Ler os logs recentes do serviço | `docker compose logs --tail=50 oppy` |
 | Parar o serviço sem remover o volume | `docker compose down` |
+
+O estado JSON é somente leitura. last_success_utc e last_failure_utc são datas em UTC (null até a primeira ocorrência), pending_notifications é a contagem pendente e telegram_configured indica se o Telegram está configurado. Um banco ausente ou ilegível gera erro em stderr e código de saída diferente de zero.
 
 Em uma instalação existente, pare o serviço Compose anterior antes de iniciar o Oppy. Preserve o volume ao desligar. O Compose reutiliza explicitamente `opportunity-beacon_beacon-data` mesmo após renomear diretórios ou o projeto. O banco de dados e seus arquivos WAL permanecem em `/app/data`. Evite `docker compose down -v`, que remove volumes. Pare qualquer instância antiga antes de iniciar outra: o agendador foi projetado para um único worker por banco de dados local.
 

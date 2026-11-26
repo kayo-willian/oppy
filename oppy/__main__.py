@@ -1,4 +1,5 @@
 import argparse
+import json
 from collections import Counter
 import logging
 import os
@@ -41,17 +42,36 @@ def show_status(path):
             print("none")
 
 
+def json_status(path):
+    with closing(sqlite3.connect(path.resolve().as_uri() + "?mode=ro", uri=True)) as db:
+        db.execute("BEGIN")
+        latest = dict(db.execute("""SELECT outcome, strftime('%Y-%m-%dT%H:%M:%fZ', max(julianday(observed_at)))
+                                    FROM collections WHERE outcome IN ('OK','FAILED')
+                                    GROUP BY outcome"""))
+        if None in latest.values():
+            raise ValueError("Invalid timestamp")
+        pending, = db.execute("SELECT count(*) FROM outbox WHERE status='pending'").fetchone()
+        return {"last_success_utc": latest.get("OK"), "last_failure_utc": latest.get("FAILED"),
+                "pending_notifications": pending, "telegram_configured": bool(Telegram.configured())}
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     commands = parser.add_subparsers(dest="command")
-    for name in ("status", "run", "smoke", "smoke-telegram"):
+    commands.add_parser("status").add_argument("--json", action="store_true")
+    for name in ("run", "smoke", "smoke-telegram"):
         commands.add_parser(name)
     commands.add_parser("summary").add_argument("--send", action="store_true")
     commands.add_parser("backup").add_argument("destination", nargs="?")
     args = parser.parse_args()
     path = database_path()
     logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
-    if args.command == "summary":
+    if args.command == "status" and args.json:
+        try:
+            print(json.dumps(json_status(path)))
+        except (sqlite3.Error, ValueError):
+            parser.exit(1, "Status unavailable: check the initialized database.\n")
+    elif args.command == "summary":
         try:
             event = saved_summary(path)
         except (sqlite3.Error, ValueError):

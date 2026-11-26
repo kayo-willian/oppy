@@ -80,11 +80,14 @@ Run these commands from the repository root on Linux. The two smoke checks are o
 | Send one test message | `docker compose run --rm oppy python -m oppy smoke-telegram` |
 | Start the scheduler | `docker compose up -d` |
 | Inspect the last checks and pending messages | `docker compose exec oppy python -m oppy status` |
+| Read monitoring status as JSON | `docker compose exec oppy python -m oppy status --json` |
 | Print the saved summary | `docker compose exec oppy python -m oppy summary` |
 | Send the saved summary directly | `docker compose exec oppy python -m oppy summary --send` |
 | Create a consistent SQLite backup | `docker compose exec oppy python -m oppy backup` |
 | Read recent service logs | `docker compose logs --tail=50 oppy` |
 | Stop the service without removing the volume | `docker compose down` |
+
+The read-only JSON status reports last_success_utc and last_failure_utc as UTC timestamps (null until observed), pending_notifications as a count, and telegram_configured as a boolean. A missing or unreadable database produces an error on stderr and a nonzero exit.
 
 For an existing installation, stop the previous Compose service before starting Oppy. Keep its volume when shutting down. Compose explicitly reuses `opportunity-beacon_beacon-data` across directory and project renames. Both the database and its WAL files stay under `/app/data`. Avoid `docker compose down -v`, which removes volumes. Stop any old instance before starting another: the scheduler is designed for a single worker per local database.
 
