@@ -62,17 +62,17 @@ Substitua o nome de usuário, a branch e o caminho de arquivo dos exemplos. Use 
 - Mantenha credenciais, arquivos reais de ambiente, bancos SQLite, logs privados e capturas HTML brutas de falhas fora do Git e de relatos públicos. Sanitize fixtures antes de adicioná-las.
 - Prefira a arquitetura existente baseada na biblioteca padrão. Não adicione serviços, bancos ou dependências sem necessidade clara.
 
-Leia as [notas do parser](../docs/psg-parser.md), o [reconhecimento da fonte](../docs/psg-recon.md) e a [documentação do núcleo](../docs/offline-core.md) para entender a implementação.
+Leia as [notas do parser](docs/psg-parser.md), o [reconhecimento da fonte](docs/psg-recon.md) e a [documentação do núcleo](docs/offline-core.md) para entender a implementação.
 
 ## Issues e propostas
 
 Pesquise issues e PRs existentes antes de abrir outro. Utilize o modelo de relato de bug ou proposta de funcionalidade. Inclua o commit, ambiente, passos de reprodução, comportamento esperado e observado e evidências sanitizadas. Uma proposta de fonte deve identificar a listagem pública, condições de acesso, campos de identidade, mudanças esperadas e um plano seguro de testes offline; não implemente nem execute coletas recorrentes antes da revisão.
 
-Issues públicas e seus modelos são bilíngues (inglês e português brasileiro). Você pode escrever ou responder em qualquer idioma sem precisar traduzir por conta própria. Código, documentação técnica interna, commits e pull requests permanecem em inglês; traduções dos documentos comunitários ficam em `pt-BR/` e devem acompanhar os originais. Para suspeitas de vulnerabilidades, siga [SEGURANCA.md](SEGURANCA.md) em vez de publicar detalhes sensíveis.
+Issues públicas e seus modelos são bilíngues (inglês e português brasileiro). Você pode escrever ou responder em qualquer idioma sem precisar traduzir por conta própria. Código, commits e pull requests usam inglês. As traduções dos documentos técnicos e comunitários ficam em `pt-BR/` e devem acompanhar os originais. Para suspeitas de vulnerabilidades, siga [SEGURANCA.md](SEGURANCA.md) em vez de publicar detalhes sensíveis.
 
 ## Checklist de revisão
 
-Explique o problema, o escopo, o impacto na compatibilidade e as concessões envolvidas. Relate os testes efetivamente realizados, inclusive falhas e verificações não executadas. Atualize a documentação e a seção Unreleased do [CHANGELOG.md](../CHANGELOG.md) para mudanças significativas visíveis ao usuário. Para alterações exclusivamente documentais, confira links, comandos, precisão técnica e o diff.
+Explique o problema, o escopo, o impacto na compatibilidade e as concessões envolvidas. Relate os testes efetivamente realizados, inclusive falhas e verificações não executadas. Atualize a documentação e a seção Unreleased do [CHANGELOG.md](CHANGELOG.md) para mudanças significativas visíveis ao usuário. Para alterações exclusivamente documentais, confira links, comandos, precisão técnica e o diff.
 
 Declare assistência relevante de IA no PR, verifique as alterações e credite trabalhos externos e suas licenças. Envie apenas material que tenha direito de contribuir sob MIT. Não invente autoria, resultados de validação ou permissões de acesso a fontes.
 

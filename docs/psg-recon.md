@@ -1,5 +1,7 @@
 # PSG portal reconnaissance
 
+[Português (Brasil)](../pt-BR/docs/psg-recon.md) · [Home](../README.md)
+
 On 19 November 2026 we sampled the public Senac Pará PSG listing and two Santarém details. Scope includes every course area. Senac is the information source. The fixtures are reduced excerpts, with candidate forms, scripts, contact information and unrelated content excluded. PDF links are metadata only.
 
 ## Access

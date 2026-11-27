@@ -1,5 +1,7 @@
 # Changelog
 
+[Português (Brasil)](pt-BR/CHANGELOG.md) · [Home](README.md)
+
 Significant merged changes to Oppy are recorded here. The source identifies itself as version `0.1.0`. These dates describe development history, not separate tagged releases. Proposed work belongs in issues.
 
 ## [Unreleased]
@@ -11,6 +13,7 @@ Significant merged changes to Oppy are recorded here. The source identifies itse
 - Optional English Telegram notifications and summary preview via `BEACON_NOTIFICATION_LANGUAGE=en`. Brazilian Portuguese remains the default.
 
 - Contribution guide, code of conduct, security reporting policy, bilingual issue templates and an English pull request template.
+- Brazilian Portuguese translations of the PSG source, parser, persistence and delivery notes, and the changelog.
 
 ### Changed
 

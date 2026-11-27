@@ -10,7 +10,6 @@ Oppy is a self-hosted monitor that checks public opportunity listings at regular
 ![SQLite](https://img.shields.io/badge/storage-SQLite-486477?style=flat)
 [![Telegram bot](https://img.shields.io/badge/Telegram-bot-2987ac?style=flat)](https://core.telegram.org/bots)
 [![Tests](https://img.shields.io/github/actions/workflow/status/kayo-willian/oppy/tests.yml?branch=main&label=tests&style=flat)](https://github.com/kayo-willian/oppy/actions/workflows/tests.yml)
-![Built with vibe coding](https://img.shields.io/badge/built%20with-vibe%20coding-c87824?style=flat)
 
 [Português (Brasil)](pt-BR/README.md) · [Quick start](#quick-start) · [Configuration](#configuration) · [Contributing](#contributing) · [Changelog](CHANGELOG.md)
 
@@ -35,6 +34,8 @@ The PSG connector detects new selections and courses, upcoming registration wind
 ```text
 source connector → parser → SQLite → outbox → Telegram
 ```
+
+For offline work, parse saved HTML and record the collection in SQLite. The parser and the database can run without contacting the portal. Reading a saved summary or status also works offline. Fetching new listings requires portal access, and sending pending messages requires Telegram access.
 
 The current connector is [oppy/psg.py](oppy/psg.py).
 
@@ -178,7 +179,7 @@ You can help with documentation, offline regression tests, deployment feedback, 
 | [Pull requests](https://github.com/kayo-willian/oppy/pulls) | Proposed changes and reviews |
 | [Changelog](CHANGELOG.md) | Significant merged changes |
 
-The README, contribution guide, code of conduct and security policy are available in English and Brazilian Portuguese in [pt-BR/](pt-BR/README.md). Internal technical documentation, code, commits and pull requests remain in English. Project-created public issues and issue templates use English and Brazilian Portuguese; contributors can reply or report in either language. Independent forks remain free to evolve under MIT.
+The README, contribution guide, code of conduct and security policy are available in English and Brazilian Portuguese in [pt-BR/](pt-BR/README.md). The technical notes and changelog also have Portuguese translations. Code, commits and pull requests use English. Project-created public issues and issue templates use English and Brazilian Portuguese; contributors can reply or report in either language. Independent forks remain free to evolve under MIT.
 
 ## How this project was built
 

@@ -1,5 +1,7 @@
 # Offline PSG parsing
 
+[Português (Brasil)](../pt-BR/docs/psg-parser.md) · [Home](../README.md)
+
 Pass decoded listing HTML to `parse_listing`, then supply a returned selection and its detail HTML to `parse_detail(markup, selection)`. Both functions return a status and reason. Only OK carries records. A missing Santarém panel in a recognizable listing or an unconfirmed empty list is INCONCLUSIVE. Malformed structure, conflicting links and contradictory selection metadata are FAILED. Keep the last valid snapshot for either outcome.
 
 Registration timestamps without an offset use America/Santarem by assumption. Course periods are local calendar dates. The registration channel describes how to apply. An in-person control leaves registration status unknown. The fixtures' redacted venue marker represents an unknown venue. Selection documents are recorded once per detail.

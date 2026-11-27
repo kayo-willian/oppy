@@ -66,7 +66,7 @@ Read [parser notes](docs/psg-parser.md), [source reconnaissance](docs/psg-recon.
 
 Search existing issues and PRs before opening a new one. Use the bug report or feature proposal template. Include the commit, environment, reproduction steps, expected and actual behavior, and sanitized evidence. A source proposal should identify the public listing, access conditions, identity fields, expected changes and a safe offline test plan; do not implement or run recurring collection before review.
 
-Public issues and issue templates are bilingual (English and Brazilian Portuguese). You may write a report or reply in either language; translating it yourself is not required. Code, internal technical documentation, commits and pull requests remain in English; community-document translations live in `pt-BR/` and should stay aligned with the English originals. For suspected vulnerabilities, follow [SECURITY.md](SECURITY.md) rather than posting sensitive details publicly.
+Public issues and issue templates are bilingual (English and Brazilian Portuguese). You may write a report or reply in either language; translating it yourself is not required. Code, commits and pull requests use English. Translations of technical and community documents live in `pt-BR/` and should stay aligned with the English originals. For suspected vulnerabilities, follow [SECURITY.md](SECURITY.md) rather than posting sensitive details publicly.
 
 ## Review checklist
 
